@@ -22,7 +22,23 @@ const pollSchema = new mongoose.Schema({
                 required:true
             }
         }]
-    },]
+    },],
+    voters:[
+        {
+            name:{
+                type:String,
+                required:true,
+            },
+            email:{
+                type:String,
+                required:true
+            },
+            year:{
+                type:Number,
+                required:true
+            }
+        }
+    ]
 
 })
 module.exports = mongoose.model('Poll', pollSchema);
