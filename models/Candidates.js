@@ -28,4 +28,4 @@ const candidateSchema = new mongoose.Schema({
         required:true
     }
 })
-module.exports = mongoose.Schema("Candidates",candidateSchema)
+module.exports = mongoose.model("Candidates",candidateSchema)

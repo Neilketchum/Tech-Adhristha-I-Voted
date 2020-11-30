@@ -30,7 +30,20 @@ router.post("/",auth, async (req,res)=>{
                 year:voter.year
             })
             await vote.save();
-       
+        })
+        req.body.positions.map(async post=>{
+            post.candidates.map(async (candidate)=>{
+                const person = new Candidates({
+                    poll:poll._id,
+                    position:post.name,
+                    votes:0,
+                    name:candidate.name,
+                    email:candidate.email,
+                    description:candidate.description,
+                    password:uuidv4(),
+                })
+                await person.save()
+            })
         })
         return res.status(200).send(poll)
     } catch (err) {

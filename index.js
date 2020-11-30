@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const authRoute = require('./routes/auth')
 const homeRoute = require("./routes/home")
 const addPollRoute = require("./routes/addPoll")
+const voterRoute = require("./routes/voterRoute")
 var cors = require('cors')
 var corsOptions = {
     origin: '*',
@@ -28,7 +29,7 @@ app.use(express.json());
 app.use('/api/user',authRoute)
 app.use("/api/posts",homeRoute)
 app.use("/api/add_poll",addPollRoute)
-
+app.use("/api/voter",voterRoute)
 
 
 const PORT = process.env.PORT || 8080
